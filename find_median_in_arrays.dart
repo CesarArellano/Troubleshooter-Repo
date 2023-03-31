@@ -1,5 +1,5 @@
 void main() {
-  print(findMedianSortedArrays([1,4], [2,3,5]));
+  print(findMedianSortedArrays([1,4, 8, 9, 10,], [2,3,5]));
 }
 
 
