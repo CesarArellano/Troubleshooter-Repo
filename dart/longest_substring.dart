@@ -1,5 +1,5 @@
 void main() {
-  print(lengthOfLongestSubstring2('dvdfkppskdpjapsjfig'));
+  print(lengthOfLongestSubstring2('xxf'));
 }
 
 int lengthOfLongestSubstring(String s) {
