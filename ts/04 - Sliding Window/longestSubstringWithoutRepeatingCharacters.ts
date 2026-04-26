@@ -28,29 +28,26 @@
 
 
 function lengthOfLongestSubstring(s: string): number {
-    const n = s.length;
-    if (n < 0 || n > (5 * Math.pow(10, 4))) {
-        return 0;
+  const n = s.length;
+  if (n < 0 || n > (5 * Math.pow(10, 4))) {
+      return 0;
+  }
+
+  let left = 0;
+  let longest = 0;
+  const sett = new Set<string>();
+
+  for (let right = 0; right < n; right++) {
+    while (sett.has(s[right]!)) {
+        sett.delete(s[left]!);
+        left++;
     }
+    const window = (right - left) + 1;
+    longest = Math.max(longest, window);
+    sett.add(s[right]!)
+  }
 
-    let left = 0;
-    let longest = 0;
-    const sett = new Set<string>();
-
-    for (let right = 0; right < n; right++) {
-      console.log('==========================')
-      console.log({longest,right, left, sett})
-        while (sett.has(s[right]!)) {
-            sett.delete(s[left]!);
-            left++;
-        }
-        const window = (right - left) + 1;
-        longest = Math.max(longest, window);
-        sett.add(s[right]!)
-        console.log({window, right, left, sett});
-    }
-
-    return longest;
+  return longest;
 };
 
 console.log(lengthOfLongestSubstring('pwwkew'))
